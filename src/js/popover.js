@@ -3,15 +3,15 @@ export class Popover {
         this._popovers = [];
     }
 
-    showPopover(header, message, element) {
+    showPopover(element) {
         const popoverElement = document.createElement('div');
         const popoverHeader = document.createElement('h3');
         const popoverMessage = document.createElement('div');
         popoverElement.classList.add('popover');
         popoverHeader.classList.add('header');
         popoverMessage.classList.add('message');
-        popoverHeader.textContent = header;
-        popoverMessage.textContent = message;
+        popoverHeader.textContent = element.dataset.head;
+        popoverMessage.textContent = element.dataset.message;
 
         const arrow = document.createElement('div')
         arrow.classList.add('arrow', 'top')

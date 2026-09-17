@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage",
+    "test": "jest --testPathPatterns=./src/",
+    "coverage": "jest --testPathPatterns=./src/ --coverage",
     "e2e": "jest --testPathPatterns=./e2e/ --runInBand",
     "lint": "eslint .",
     "build": "webpack --config webpack.prod.js",
