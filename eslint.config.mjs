@@ -5,15 +5,23 @@ import { defineConfig } from "eslint/config";
 export default defineConfig([
   { files: ["**/*.{js,mjs,cjs}"], 
     plugins: { js }, 
-    extends: ["js/recommended"], 
-    "env": {
-        "es6": true,
-        "browser": true,
-        "jest/globals": true
+    extends: ["js/recommended"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        'jest/globals': true,
       },
-    "parserOptions": {
-      "sourceType": "module"
+      parserOptions: {
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
     },
-    ignores: ["dist/*", "coverage/*", "webpack.*.js"],
-    languageOptions: { globals: globals.browser } },
+    ignores: ['dist/**', 'coverage/**', '**/node_modules/**', "webpack.*.js"],
+    linterOptions: {
+      reportUnusedDisableDirectives: 'warn',
+    },
+  }
 ]);
